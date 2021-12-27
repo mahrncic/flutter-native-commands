@@ -10,7 +10,7 @@
   FlutterViewController* controller = (FlutterViewController*) self.window.rootViewController;
   FlutterMethodChannel* batteryChannel = [FlutterMethodChannel methodChannelWithName: @"native-code.flutter.dev/battery" binaryMessenger:: controller];
 
-  __weak typeof(self) weakSelf = self
+  __weak typeof(self) weakSelf = self;
   [batteryChannel setMethodCallHandler: ^(FlutterMethodCall* call, FLutterResult result) {
     if ([@"getBatteryLevel" isEqualToString:call.method]) {
       int batteryLevel = [weakSelf getBatteryLevel];
